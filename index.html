@@ -1,82 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-    <script src="main.js"></script>
-
-    <title>IPMEDT3-PC Upgraden</title>
-  </head>
-  <body>
-    <a-scene id="js-scene" app>
-
-      <a-camera id="camera-cirkel" position="0 3 5 ">
-
-        <a-entity
-          id="camera-cirkel"
-          animation__click="property: scale; 
-        startEvents: click;
-        easing: easeInCubic;
-        dur: 100;
-        from: 0.1 0.1 0.1;
-        to: 1 1 1"
-          animation__fusing="
-        property: scale;
-        startEvents: fusing;
-        easing: easeInCubic;
-        dur:1000;
-        from: 1 1 1
-        to: 0.1 0.1 0.1"
-          animation="property: scale;
-        startEvents: mouseleave;
-        easing: easeInCubic;
-        dur: 500;
-        to: 1 1 1;"
-          cursor=" fuse: true; fuseTimeout:1000"
-          material="color: black; shader: flat"
-          geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
-          position="0 0 -0.5"
-          raycaster="objects: .clickable ,.oppakken ,.neerleggen ,.plekPlaatsen ,.terug ,.neerleggen2"
-        ></a-entity>
-      </a-camera>
-
-      <a-plane
-        class="terug"
-        id="terugButton"
-        color="#607466"
-        position="-8 8 1"
-        side="double"
-        width="2"
-        height="1"
-        events="click: vorigePagina"
-        cursor-listener1
-      >
-        <a-text
-          position="-0.5 0 0"
-          value="TERUG"
-          width="8"
-          height="6"
-          color="white"
-        >
-        </a-text
-      ></a-plane>
-
-      <a-sky color="#dde7fb"></a-sky>
-      <a-plane
-        id="grond"
-        color="white"
-        rotation="-90 0 0"
-        width="50"
-        height="50"
-      ></a-plane>
-
-      <a-entity id="js--light" light="type: ambient; color: #BBB"></a-entity>
-    </a-scene>
-  </body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <<<<<<< Updated upstream
@@ -92,15 +13,7 @@
   </head>
   <body>
     <a-scene id="js-scene" app>
-      <!-- camera met animatie maken,
-plekken maken waar je iets op kan plaatsen
-blokken maken die je kan oppakken en plaatsen op die plek 
-op die blokken moet dan een pop up menu komen. -->
-      <!-- assets met geluid komt van hajar -->
-
       <a-camera id="camera-cirkel" position="0 3 5 ">
-        <!-- meerdere objecten kunnen oppakken en plaatsen, goed en fout feedback en geluid,
-        foto toevoegen aan iets dat opgepakt is -->
         <a-entity
           id="camera-cirkel"
           animation__click="property: scale; 
@@ -376,23 +289,9 @@ op die blokken moet dan een pop up menu komen. -->
       </a-entity>
 
       <a-entity id="js--light" light="type: ambient; color: #BBB"></a-entity>
-    </a-scene>
-  </body>
-</html>
-=======
-<head>
-    <meta charset="UTF-8">
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="main.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <a-scene>
-        <a-camera id="js--camera" postion="0 10 0">
-            <a-entity
 
-            ></a-entity>
-        </a-camera>
+    
+        
         <a-assets>
              <a-asset-item id="stoel" src="assets/stoel.gltf"></a-asset-item>
              <a-asset-item id="table" src="assets/table.gltf" ></a-asset-item>
@@ -491,4 +390,4 @@ op die blokken moet dan een pop up menu komen. -->
     </a-scene>
 </body>
 </html>
->>>>>>> Stashed changes
+
