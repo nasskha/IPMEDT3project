@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< Updated upstream
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +7,6 @@
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
     <script src="main.js"></script>
-
     <title>IPMEDT3-PC Upgraden</title>
   </head>
   <body>
@@ -38,9 +36,28 @@
           material="color: black; shader: flat"
           geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
           position="0 0 -0.5"
-          raycaster="objects: .clickable ,.oppakken ,.neerleggen ,.plekPlaatsen ,.terug ,.neerleggen2"
+          raycaster="objects: .clickable ,.oppakken ,.neerleggen ,.plekPlaatsen ,.terug ,.neerleggen2 ,.klik ,.js--hoveren"
         ></a-entity>
       </a-camera>
+
+      <a-plane
+        id="hoverBox1"
+        class="js--hoveren"
+        color="blue"
+        position="-12 0.1 0"
+        rotation="270 0 0"
+        width="2"
+        height="2"
+      ></a-plane>
+      <a-plane
+        id="hoverBox2"
+        class="js--hoveren"
+        color="blue"
+        position="12 0.1 0"
+        rotation="270 0 0"
+        width="2"
+        height="2"
+      ></a-plane>
 
       <a-plane
         class="terug"
@@ -290,104 +307,345 @@
 
       <a-entity id="js--light" light="type: ambient; color: #BBB"></a-entity>
 
-    
-        
-        <a-assets>
-             <a-asset-item id="stoel" src="assets/stoel.gltf"></a-asset-item>
-             <a-asset-item id="table" src="assets/table.gltf" ></a-asset-item>
-        </a-assets>
+      <!-- <a-plane
+      id="grond"
+      color="#B0A695"
+      rotation="-90 0 0"
+      width="40"
+      height="40"
+    ></a-plane> -->
 
-        <!-- 3D stoelen en tafels -->
-        <a-entity gltf-model="#stoel" rotation="0 0 0"  position="8 1 8" scale="0.10 0.10 0.10" ></a-entity>
-        <a-entity gltf-model="#stoel" rotation="0 0 0"  position="8 1 0" scale="0.10 0.10 0.10" ></a-entity>
-        <a-entity gltf-model="#table" position="8 1.5 -2" scale="2.8 2.8 2.8"></a-entity>
-        <a-entity gltf-model="#table" position="-8 1.5 -2" scale="2.8 2.8 2.8"></a-entity>
-        <a-entity gltf-model="#stoel" rotation="0 0 0"  position="-8 1 8" scale="0.10 0.10 0.10" ></a-entity>
-        <a-entity gltf-model="#stoel" rotation="0 0 0"  position="-8 1 0" scale="0.10 0.10 0.10" ></a-entity>
+      <a-assets>
+        <a-asset-item id="stoel" src="assets/stoel.gltf"></a-asset-item>
+        <a-asset-item id="table" src="assets/table.gltf"></a-asset-item>
+      </a-assets>
 
+      <!-- 3D stoelen en tafels -->
+      <a-entity
+        gltf-model="#stoel"
+        rotation="0 0 0"
+        position="8 1 8"
+        scale="0.10 0.10 0.10"
+      ></a-entity>
+      <a-entity
+        gltf-model="#stoel"
+        rotation="0 0 0"
+        position="8 1 0"
+        scale="0.10 0.10 0.10"
+      ></a-entity>
+      <a-entity
+        gltf-model="#table"
+        position="8 1.5 -2"
+        scale="2.8 2.8 2.8"
+      ></a-entity>
+      <a-entity
+        gltf-model="#table"
+        position="-8 1.5 -2"
+        scale="2.8 2.8 2.8"
+      ></a-entity>
+      <a-entity
+        gltf-model="#stoel"
+        rotation="0 0 0"
+        position="-8 1 8"
+        scale="0.10 0.10 0.10"
+      ></a-entity>
+      <a-entity
+        gltf-model="#stoel"
+        rotation="0 0 0"
+        position="-8 1 0"
+        scale="0.10 0.10 0.10"
+      ></a-entity>
 
-        <!-- ruimte -->
-        <a-sky color="#cfe2f3"></a-sky>
-        <a-plane id="grond" color="white" rotation="-90 0 0" width="25" height="25">
-            <a-image src="pics/vloer.jpg" width="25" height="25" depth="15" position="0 0 0.03"></a-image>
-        </a-plane>
+      <!-- ruimte -->
+      <a-sky color="#cfe2f3"></a-sky>
+      <a-plane
+        id="grond"
+        color="white"
+        rotation="-90 0 0"
+        width="25"
+        height="25"
+      >
+        <a-image
+          src="pics/vloer.jpg"
+          width="25"
+          height="25"
+          depth="15"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
-        <a-plane color="grey" rotation="0 90 0" width="25" height="10" position="-12.5 5 0">
-            <a-image src="pics/muur.jpg" width="25" height="10" position="0 0 0.03"></a-image>
-        </a-plane>
+      <a-plane
+        color="grey"
+        rotation="0 90 0"
+        width="25"
+        height="10"
+        position="-12.5 5 0"
+      >
+        <a-image
+          src="pics/muur.jpg"
+          width="25"
+          height="10"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
-        <a-plane color="grey" rotation="0 90 0" width="25" height="10" position="12.5 5 0">
-            <a-image src="pics/muur.jpg" width="25" height="10" position="0 0 0.03"></a-image>
-        </a-plane>
+      <a-plane
+        color="grey"
+        rotation="0 90 0"
+        width="25"
+        height="10"
+        position="12.5 5 0"
+      >
+        <a-image
+          src="pics/muur.jpg"
+          width="25"
+          height="10"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
-        <a-plane color="grey" width="25" height="10" position="0 5 -12.5">
-            <a-image src="pics/muur.jpg" width="25" height="10" position="0 0 0.03"></a-image>
-        </a-plane>
+      <a-plane color="grey" width="25" height="10" position="0 5 -12.5">
+        <a-image
+          src="pics/muur.jpg"
+          width="25"
+          height="10"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
-        <a-plane color="black" width="25" height="25" depth="15" rotation="90 0 0" position="0 10 0" >
-            <a-image src="pics/ceiling.png" width="25" height="25" depth="15" position="0 0 0.03" ></a-image>
-        </a-plane>
+      <a-plane
+        color="black"
+        width="25"
+        height="25"
+        depth="15"
+        rotation="90 0 0"
+        position="0 10 0"
+      >
+        <a-image
+          src="pics/ceiling.png"
+          width="25"
+          height="25"
+          depth="15"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
+      <!-- raam met uitzicht -->
+      <a-plane
+        color=""
+        width="9.5"
+        height="6.5"
+        rotation="0 90 0"
+        position="-12.4 6 -4.5"
+      >
+        <a-image
+          src="pics/uitzicht.jpg"
+          width="9.5"
+          height="6.5"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
+      <a-plane
+        color=""
+        width="9.5"
+        height="6.5"
+        rotation="0 90 0"
+        position="12.4 6 -4.5"
+      >
+        <a-image
+          src="pics/uitzicht.jpg"
+          width="9.5"
+          height="6.5"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
-        <!-- raam met uitzicht -->
-        <a-plane color="" width="9.5" height="6.5" rotation="0 90 0" position="-12.4 6 -4.5" >
-            <a-image src="pics/uitzicht.jpg" width="9.5" height="6.5" position="0 0 0.03" ></a-image>
-        </a-plane>
+      <a-plane
+        color=""
+        width="9.5"
+        height="6.5"
+        rotation="0 90 0"
+        position="12.4 6 7"
+      >
+        <a-image
+          src="pics/uitzicht.jpg"
+          width="9.5"
+          height="6.5"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
-        <a-plane color="" width="9.5" height="6.5" rotation="0 90 0" position="12.4 6 -4.5" >
-            <a-image src="pics/uitzicht.jpg" width="9.5" height="6.5" position="0 0 0.03" ></a-image>
-        </a-plane>
+      <!-- decoratie -->
+      <a-plane
+        color="white"
+        width="2"
+        height="2"
+        rotation="0 90 0"
+        position="-12.4 6 4.5"
+      >
+        <a-image
+          src="pics/poster1.jpeg"
+          width="2"
+          height="2"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
-        <a-plane color="" width="9.5" height="6.5" rotation="0 90 0" position="12.4 6 7" >
-            <a-image src="pics/uitzicht.jpg" width="9.5" height="6.5" position="0 0 0.03" ></a-image>
-        </a-plane>
+      <a-plane
+        color="white"
+        width="2"
+        height="2"
+        rotation="0 90 0"
+        position="-12.4 4.5 6.5"
+      >
+        <a-image
+          src="pics/poster2.jpeg"
+          width="2"
+          height="2"
+          position="0 0 0.03"
+        ></a-image>
+      </a-plane>
 
-        <!-- decoratie -->
-        <a-plane color="white" width="2" height="2" rotation="0 90 0" position="-12.4 6 4.5" >
-            <a-image src="pics/poster1.jpeg" width="2" height="2" position="0 0 0.03"></a-image>
-        </a-plane>
-
-        <a-plane color="white" width="2" height="2" rotation="0 90 0" position="-12.4 4.5 6.5" >
-            <a-image src="pics/poster2.jpeg" width="2" height="2" position="0 0 0.03"></a-image>
-        </a-plane>
-        
-
-        <!-- gereedschapsbord -->
-        <a-box color="#3E3C3E" width="7" height="6.5"  radius="3" depth="0.02"  position="7 5.5 -12.3">
-            <a-box color="beige" width="6.7" height="6.2"  radius="1" depth="0.04" position="0 0 0.03">
-
-                <!-- onderdelen -->
-        <a-plane color="white" width="1" height="1" radius="1"depth="1" side="double" position="-1.5 1.3 0.1">
-            <a-image src="pics/ram-1.png" width="1" height="1" postion="0 0 0.03"></a-image>
-        </a-plane>
-
-        <a-plane color="white" width="1" height="1" radius="1"depth="1" side="double" position="-1.5 -1.35 0.1">
-            <a-image src="pics/cpu-1.png" width="1" height="1"postion="0 0 0.03"></a-image>
-        </a-plane>
-
-        <a-plane color="white" width="1" height="1" radius="1"depth="1" side="double" position="1.5 1.3 0.1">
-            <a-image src="pics/board-1.jpeg" width="1" height="1" postion="0 0 0.03"></a-image>
-        </a-plane>
-
-        <a-plane color="white" width="1" height="1" radius="1"depth="1" side="double" position="1.5 -1.35 0.1">
-            <a-image src="pics/ventilator-1.jpeg" width="1" height="1" postion="0 0 0.03"></a-image>
-        </a-plane>
-
-
-        <a-plane color="white" width="1" height="1" radius="1"depth="1" side="double" position="0 0 0.1">
-            <a-image src="pics/graphic-1.png" width="1" height="1" postion="0 0 0.03"></a-image>
-        </a-plane>
+      <!-- gereedschapsbord -->
+      <a-box
+        color="#3E3C3E"
+        width="7"
+        height="6.5"
+        radius="3"
+        depth="0.02"
+        position="7 5.5 -12.3"
+      >
+        <a-box
+          color="beige"
+          width="6.7"
+          height="6.2"
+          radius="1"
+          depth="0.04"
+          position="0 0 0.03"
+        >
         </a-box>
+        <!-- onderdelen -->
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="-1.5 1.3 0.1"
+        >
+          <a-image
+            src="pics/ram-1.png"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
 
-        <!-- werkbord -->
-        <a-box color="#3E3C3E" width="7" height="6.5"  radius="3" depth="0.02"  position="-12.5 0 0">
-            <a-box color="#FFFFFF" width="6.7" height="6.2"  radius="1" depth="0.04" position="0 0 0.03">
-                <a-plane color="black" width="6" height="5.5" radius="1" depth="0.04" side="double" position="0 0 0.03">
-                    <a-image src="pics/computer-empty.jpeg" width="6" height="5.5" postion="0 0 0.03" ></a-image>
-                </a-plane>
-        </a-box>
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="-1.5 -1.35 0.1"
+        >
+          <a-image
+            src="pics/cpu-1.png"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="1.5 1.3 0.1"
+        >
+          <a-image
+            src="pics/board-1.jpeg"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="1.5 -1.35 0.1"
+        >
+          <a-image
+            src="pics/ventilator-1.jpeg"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="0 0 0.1"
+        >
+          <a-image
+            src="pics/graphic-1.png"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+      </a-box>
+
+      <!-- werkbord -->
+      <a-box
+        color="#3E3C3E"
+        width="7"
+        height="6.5"
+        radius="3"
+        depth="0.02"
+        position="-12.5 0 0"
+      ></a-box>
+      <a-box
+        color="#FFFFFF"
+        width="6.7"
+        height="6.2"
+        radius="1"
+        depth="0.04"
+        position="0 0 0.03"
+      >
+        <a-plane
+          color="black"
+          width="6"
+          height="5.5"
+          radius="1"
+          depth="0.04"
+          side="double"
+          position="0 0 0.03"
+        >
+          <a-image
+            src="pics/computer-empty.jpeg"
+            width="6"
+            height="5.5"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+      </a-box>
     </a-scene>
-</body>
+  </body>
 </html>
-

@@ -232,6 +232,23 @@ AFRAME.registerComponent("app", {
       });
     }
   },
+  //teleporteren
+  init: function () {
+    const hover = document.getElementsByClassName("js--hoveren");
+    const camera = document.getElementById("camera-cirkel");
+
+    for (let i = 0; i < hover.length; i++) {
+      hover[i].addEventListener("click", function (evt) {
+        let att = document.createAttribute("animation");
+        att.value =
+          "property: position; easing: linear; dur:4500; to:" +
+          this.getAttribute("position").x +
+          " 1.6 " +
+          +this.getAttribute("position").z;
+        camera.setAttribute("animation", att.value);
+      });
+    }
+  },
 });
 //starpagina button doorgaan naar volgende pagina
 AFRAME.registerComponent("cursor-listener", {
