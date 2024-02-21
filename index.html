@@ -39,31 +39,31 @@
           raycaster="objects: .clickable ,.oppakken ,.neerleggen ,.plekPlaatsen ,.terug ,.neerleggen2 ,.klik ,.js--hoveren"
         ></a-entity>
       </a-camera>
-
-      <a-plane
+<!-- teleporteer plekken -->
+      <a-box
         id="hoverBox1"
         class="js--hoveren"
-        color="blue"
-        position="-12 0.1 0"
+        color="pink"
+        position="-8 0.1 -5"
         rotation="270 0 0"
         width="2"
         height="2"
-      ></a-plane>
-      <a-plane
+      ></a-box>
+      <a-box
         id="hoverBox2"
         class="js--hoveren"
-        color="blue"
-        position="12 0.1 0"
+        color="pink"
+        position="8 0.1 -5"
         rotation="270 0 0"
         width="2"
         height="2"
-      ></a-plane>
-
+      ></a-box>
+<!-- terug button -->
       <a-plane
         class="terug"
         id="terugButton"
         color="#607466"
-        position="-8 8 1"
+        position="-10 8 -12"
         side="double"
         width="2"
         height="1"
@@ -79,8 +79,9 @@
         >
         </a-text
       ></a-plane>
-
+<!-- lucht omgeving -->
       <a-sky color="#dde7fb"></a-sky>
+      <!-- grond -->
       <a-plane
         id="grond"
         color="white"
@@ -88,9 +89,9 @@
         width="50"
         height="50"
       ></a-plane>
-
+<!-- pop up menus  -->
       <a-entity position="0 5 0">
-        <a-entity id="menu-one" class="menu" position="7 1 0.2" visible="false">
+        <a-entity id="menu-one" class="menu" position="7 2 -9" visible="false">
           <a-plane
             class="clickable"
             color="grey"
@@ -124,7 +125,7 @@
         <a-entity
           id="menu-two"
           class="menu"
-          position="10 1 0.2"
+          position="10 2 -9"
           visible="false"
         >
           <a-plane
@@ -161,7 +162,7 @@
         <a-entity
           id="menu-three"
           class="menu"
-          position="0 0.5 0"
+          position="0 2 -9"
           visible="false"
         >
           <a-plane
@@ -193,6 +194,80 @@
           >
           </a-plane>
         </a-entity>
+
+        <!-- menu vier -->
+        <a-entity
+        id="menu-four"
+        class="menu"
+        position="5 0 -10"
+        visible="false"
+      >
+        <a-plane
+          class="clickable"
+          color="grey"
+          position="3 0 1"
+          text="value: informatiekaart; align:center; width: 3;"
+          event-set__enter="_event:mouseenter; _target: #boxText4; visible:true"
+          event-set__leave="_event:mouseleave; _target: #boxText4; visible:false"
+        >
+          <a-text
+            id="boxText4"
+            value="ABCDEFG"
+            align="center"
+            color="black"
+            visible="false"
+            position="-1 1 1"
+            rotation="0 0 0"
+            geometry="primitive: plane; width:3 height:1"
+            material="color:pink"
+          ></a-text>
+        </a-plane>
+        <a-plane
+          id="GRAPHIC"
+          class="clickable oppakken"
+          color="grey"
+          position="5 0 1"
+          text="value: pak mij op; align:center; width:3;"
+        >
+        </a-plane>
+      </a-entity>
+
+      <!-- menu vijf -->
+      <a-entity
+        id="menu-five"
+        class="menu"
+        position="1 0 -10"
+        visible="false"
+      >
+        <a-plane
+          class="clickable"
+          color="grey"
+          position="3 0 1"
+          text="value: informatiekaart; align:center; width: 3;"
+          event-set__enter="_event:mouseenter; _target: #boxText5; visible:true"
+          event-set__leave="_event:mouseleave; _target: #boxText5; visible:false"
+        >
+          <a-text
+            id="boxText5"
+            value="ABCDEFG"
+            align="center"
+            color="black"
+            visible="false"
+            position="-1 1 1"
+            rotation="0 0 0"
+            geometry="primitive: plane; width:3 height:1"
+            material="color:pink"
+          ></a-text>
+        </a-plane>
+        <a-plane
+          id="VENTILATOR"
+          class="clickable oppakken"
+          color="grey"
+          position="5 0 1"
+          text="value: pak mij op; align:center; width:3;"
+        >
+        </a-plane>
+      </a-entity>
       </a-entity>
       <!-- hieronder de boxen waar je iets op kan plaatsen -->
       <a-entity id="boxEnPlaatsen">
@@ -219,9 +294,9 @@
         <!-- de muur -->
         <a-plane
           src="images/gereedschapmuur.jpg"
-          height="15"
+          height="8"
           width="10"
-          position="7 0 0"
+          position="7 5 -11.7"
           side="double"
         >
           <a-text
@@ -229,12 +304,12 @@
             width="9"
             height="4"
             color="black"
-            position="-1.5 7 0"
+            position="-1.5 3.8 0"
           ></a-text>
         </a-plane>
         <!-- ram plane -->
         <a-entity>
-          <a-entity position="4 5 0.5">
+          <a-entity position="4 7 -10.5">
             <a-plane
               toggle-menu="#menu-three"
               class="clickable button"
@@ -252,7 +327,7 @@
             class="clickable oppakken fotoRAM"
             height="1"
             width="3"
-            position="4 5 0.1"
+            position="4 7 -11"
             side="double"
             src="images/RAM.jpg"
           >
@@ -260,7 +335,7 @@
         </a-entity>
 
         <!-- cpu plane -->
-        <a-entity position="7 6 0.2">
+        <a-entity position="7 8 -10.5">
           <a-plane
             toggle-menu="#menu-one"
             class="clickable"
@@ -278,11 +353,11 @@
           src="images/CPU.jpg"
           height="2"
           width="2"
-          position="7 5 0.1"
+          position="7 7 -11"
           side="double"
         ></a-plane>
         <!-- ssd plane -->
-        <a-entity position="10 6 0.2">
+        <a-entity position="10 8 -10.5">
           <a-plane
             toggle-menu="#menu-two"
             class="clickable"
@@ -300,21 +375,61 @@
           src="images/SSD.jpg"
           height="2"
           width="2"
-          position="10 5 0.1"
+          position="10 7 -11"
           side="double"
+        ></a-plane>
+
+
+        <!-- graphic card plane -->
+        <a-entity position="9 5 -10.5">
+          <a-plane
+          toggle-menu="#menu-four"
+          class="clickable"
+          position="0 -1 0"
+          height="0.5"
+          width="1.5"
+          color="grey"
+          text="value: GRAPHIC CARD; align:center; width:3;"
+          side="double"
+          ></a-plane>
+        </a-entity>
+        <a-plane
+        id="GRAPHIC"
+        class="clickable oppakken"
+        src="images/grapphiccard.png"
+        height="2"
+        width="2"
+        position="9 4 -11"
+        side="double"
+        ></a-plane>
+
+        <!-- ventilator plane -->
+        <a-entity position="5 5 -10.5">
+          <a-plane
+          toggle-menu="#menu-five"
+          class="clickable"
+          position="0 -1 0"
+          height="0.5"
+          width="1.5"
+          color="grey"
+          text="value: VENTILATOR; align:center; width:3;"
+          side="double"
+          ></a-plane>
+        </a-entity>
+        <a-plane
+        id="VENTILATOR"
+        class="clickable oppakken"
+        src="images/ventilator.jpeg"
+        height="2"
+        width="2"
+        position="5 4 -11"
+        side="double"
         ></a-plane>
       </a-entity>
 
       <a-entity id="js--light" light="type: ambient; color: #BBB"></a-entity>
 
-      <!-- <a-plane
-      id="grond"
-      color="#B0A695"
-      rotation="-90 0 0"
-      width="40"
-      height="40"
-    ></a-plane> -->
-
+  
       <a-assets>
         <a-asset-item id="stoel" src="assets/stoel.gltf"></a-asset-item>
         <a-asset-item id="table" src="assets/table.gltf"></a-asset-item>
@@ -526,7 +641,7 @@
         >
         </a-box>
         <!-- onderdelen -->
-        <a-plane
+        <!-- <a-planea
           color="white"
           width="1"
           height="1"
@@ -608,12 +723,12 @@
             width="1"
             height="1"
             postion="0 0 0.03"
-          ></a-image>
+          ></a-image> -->
         </a-plane>
       </a-box>
 
       <!-- werkbord -->
-      <a-box
+      <!-- <a-box
         color="#3E3C3E"
         width="7"
         height="6.5"
@@ -643,7 +758,7 @@
             width="6"
             height="5.5"
             postion="0 0 0.03"
-          ></a-image>
+          ></a-image> -->
         </a-plane>
       </a-box>
     </a-scene>
