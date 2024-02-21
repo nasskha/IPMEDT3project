@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="main.js"></script>
+    <title>Frontpage</title>
+  </head>
+  <body>
+    <a-scene id="app">
+      <!-- de plaatjes die flickeren moeten een z waarde hebben -->
+      <a-camera id="camera-cirkel" position="6 7 15 ">
+        <a-entity
+          id="camera-cirkel"
+          animation__click="property: scale; 
+            startEvents: click;
+            easing: easeInCubic;
+            dur: 100;
+            from: 0.1 0.1 0.1;
+            to: 1 1 1"
+          animation__fusing="
+            property: scale;
+            startEvents: fusing;
+            easing: easeInCubic;
+            dur:1000;
+            from: 1 1 1
+            to: 0.1 0.1 0.1"
+          animation="property: scale;
+            startEvents: mouseleave;
+            easing: easeInCubic;
+            dur: 500;
+            to: 1 1 1;"
+          cursor=" fuse: true; fuseTimeout:1000"
+          material="color: black; shader: flat"
+          geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
+          position="0 0 -0.5"
+          raycaster="objects: .klik, .playgeluid"
+        ></a-entity>
+      </a-camera>
+      <a-sky color="#B9D9EB"></a-sky>
+      <a-assets>
+        <audio
+          src="achtergrondGeluid.mp3"
+          id="achtergrondSound"
+          preload="auto"
+        ></audio>
+      </a-assets>
+      <!-- soms moet deze opnieuw ingeladen worden, uitcommenten opslaan en weer terugzetten. -->
+      <a-sound src="#achtergrondSound" autoplay="true" loop="true"></a-sound>
+
+      <a-plane
+        id="grond"
+        src="images/vloer.jpg"
+        rotation="-90 0 0"
+        width="50"
+        height="50"
+      ></a-plane>
+      <a-plane
+        id="achtergrond"
+        color="lightgrey"
+        opacity="0.7"
+        position="0 10 0.1"
+        width="40"
+        height="30"
+        side="double"
+        opacity=""
+      ></a-plane>
+      <!-- deze plane hieronder wordt de foto van het lokaal.  -->
+      <a-plane
+        src="images/startAchtergrond.png"
+        position="0 12 0"
+        width="40"
+        height="30"
+        side="double"
+      ></a-plane>
+      <a-plane
+        class="klik"
+        id="startbutton"
+        color="#607466"
+        position="0 8 1"
+        side="double"
+        width="4"
+        height="3"
+        events="click: volgendePagina playgeluid"
+        cursor-listener
+      >
+        <a-text
+          position="-0.9 -0.2 0.1"
+          value="START"
+          width="15"
+          height="10"
+          color="black"
+          font-family="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        ></a-text>
+      </a-plane>
+
+    </a-scene>
+  </body>
+</html>
