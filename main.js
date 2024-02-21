@@ -120,6 +120,28 @@ AFRAME.registerComponent("app", {
               );
               newPlane.setAttribute("position", "1 1 -2");
               newPlane.setAttribute("scale", "0.5 0.5 0.5");
+            } else if (this.getAttribute("id") == "VENTILATOR") {
+              newPlane.setAttribute("src", "images/ventilator.jpeg");
+              newPlane.setAttribute("width", 2);
+              newPlane.setAttribute("height", 2);
+              newPlane.setAttribute("id", planeId);
+              newPlane.setAttribute(
+                "class",
+                "clickable oppakken neerleggen plekPlaatsen"
+              );
+              newPlane.setAttribute("position", "1 1 -2");
+              newPlane.setAttribute("scale", "0.5 0.5 0.5");
+            } else if (this.getAttribute("id") == "GRAPHIC") {
+              newPlane.setAttribute("src", "images/grapphiccard.png");
+              newPlane.setAttribute("width", 2);
+              newPlane.setAttribute("height", 2);
+              newPlane.setAttribute("id", planeId);
+              newPlane.setAttribute(
+                "class",
+                "clickable oppakken neerleggen plekPlaatsen"
+              );
+              newPlane.setAttribute("position", "1 1 -2");
+              newPlane.setAttribute("scale", "0.5 0.5 0.5");
             }
 
             camera.appendChild(newPlane);
@@ -194,6 +216,45 @@ AFRAME.registerComponent("app", {
                 z: this.getAttribute("position").z,
               });
             }
+            if (this.getAttribute("class") == "neerleggen") {
+              console.log("dit is de ssd plek");
+              plane.setAttribute("class", "oppakken ssd");
+              plane.setAttribute("id", "SSD");
+              plane.setAttribute("src", "images/SSD.jpg");
+              plane.setAttribute("width", 2);
+              plane.setAttribute("height", 2);
+              plane.setAttribute("position", {
+                x: this.getAttribute("position").x,
+                y: "0.7",
+                z: this.getAttribute("position").z,
+              });
+            }
+            if (this.getAttribute("class") == "neerleggen") {
+              console.log("dit is de ventilator plek");
+              plane.setAttribute("class", "oppakken ventilator");
+              plane.setAttribute("id", "VENTILATOR");
+              plane.setAttribute("src", "images/ventilator.jpeg");
+              plane.setAttribute("width", 2);
+              plane.setAttribute("height", 2);
+              plane.setAttribute("position", {
+                x: this.getAttribute("position").x,
+                y: "0.7",
+                z: this.getAttribute("position").z,
+              });
+            }
+            if (this.getAttribute("class") == "neerleggen") {
+              console.log("dit is de graphic plek");
+              plane.setAttribute("class", "oppakken graphic");
+              plane.setAttribute("id", "GRAPHIC");
+              plane.setAttribute("src", "images/grapphiccard.png");
+              plane.setAttribute("width", 2);
+              plane.setAttribute("height", 2);
+              plane.setAttribute("position", {
+                x: this.getAttribute("position").x,
+                y: "0.7",
+                z: this.getAttribute("position").z,
+              });
+            }
 
             if (
               (this == CpuPlaats && plane.getAttribute("id") == "CPU") ||
@@ -231,11 +292,9 @@ AFRAME.registerComponent("app", {
         }
       });
     }
-  },
-  //teleporteren
-  init: function () {
+
+    //teleporteren
     const hover = document.getElementsByClassName("js--hoveren");
-    const camera = document.getElementById("camera-cirkel");
 
     for (let i = 0; i < hover.length; i++) {
       hover[i].addEventListener("click", function (evt) {
@@ -268,4 +327,3 @@ AFRAME.registerComponent("cursor-listener1", {
     });
   },
 });
-//teleporteren hieronder
