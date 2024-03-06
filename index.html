@@ -678,6 +678,145 @@
       ></a-entity>
       <a-entity gltf-model="#ventilator1" position="8.5 3 -11"></a-entity>
       <a-entity gltf-model="#ventilator2" position="7 3 -11"></a-entity>
+      <!-- gereedschapsbord -->
+      <a-box
+        color="#3E3C3E"
+        width="7"
+        height="6.5"
+        radius="3"
+        depth="0.02"
+        position="7 5.5 -12.3"
+      >
+        <a-box
+          color="beige"
+          width="6.7"
+          height="6.2"
+          radius="1"
+          depth="0.04"
+          position="0 0 0.03"
+        >
+        </a-box>
+        <!-- onderdelen -->
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="-1.5 1.3 0.1"
+        >
+          <a-image
+            src="pics/ram-1.png"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="-1.5 -1.35 0.1"
+        >
+          <a-image
+            src="pics/cpu-1.png"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="1.5 1.3 0.1"
+        >
+          <a-image
+            src="pics/board-1.jpeg"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="1.5 -1.35 0.1"
+        >
+          <a-image
+            src="pics/ventilator-1.jpeg"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+
+        <a-plane
+          color="white"
+          width="1"
+          height="1"
+          radius="1"
+          depth="1"
+          side="double"
+          position="0 0 0.1"
+        >
+          <a-image
+            src="pics/graphic-1.png"
+            width="1"
+            height="1"
+            postion="0 0 0.03"
+          ></a-image>
+        </a-plane>
+      </a-box>
+
+      <a-plane
+        width="7"
+        height="7"
+        color="#262626"
+        position="-6 5 -12"
+      ></a-plane>
+
+      <a-plane
+        width="2"
+        height="7"
+        side="double"
+        color="#262626"
+        position="-9.5 5 -12"
+        rotation="0 90 0"
+      ></a-plane>
+
+      <a-plane
+        width="2"
+        height="7"
+        side="double"
+        color="#262626"
+        position="-2.5 5 -12"
+        rotation="0 90 0"
+      ></a-plane>
+
+      <a-box
+        width="2"
+        height="7"
+        dept="0.5"
+        side="double"
+        color="black"
+        position="-6 1.5 -12"
+        rotation="90 90 0"
+      ></a-box>
     </a-scene>
   </body>
 </html>
