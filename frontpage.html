@@ -10,7 +10,7 @@
   <body>
     <a-scene id="app">
       <!-- de plaatjes die flickeren moeten een z waarde hebben -->
-      <a-camera id="camera-cirkel" position="6 7 15 ">
+      <a-camera id="camera-cirkel" position="0 4 15 ">
         <a-entity
           id="camera-cirkel"
           animation__click="property: scale; 
@@ -75,26 +75,48 @@
         side="double"
       ></a-plane>
       <a-plane
+        color="black"
+        position="0 9 1"
+        side="double"
+        width="12"
+        height="8"
+      >
+        <a-plane
+          src="images/11111111.png"
+          position="-4 -1 0.1"
+          width="2.5"
+          height="2.5"
+        ></a-plane
+      ></a-plane>
+
+      <a-plane
         class="klik"
         id="startbutton"
-        color="#607466"
-        position="0 8 1"
+        color="lightgrey"
+        position="0 8 1.1"
         side="double"
-        width="4"
-        height="3"
+        width="2.5"
+        height="1.5"
         events="click: volgendePagina playgeluid"
         cursor-listener
       >
         <a-text
-          position="-0.9 -0.2 0.1"
+          position="-5 3 0.1"
+          value="Welkom bij deze VR experience over computers! Je zal in deze experience leren wat bepaalde computeronderdelen doen en waar ze geplaatst worden in de computer zelf!"
+          width="11"
+          height="10"
+          color="white"
+          font-family="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        ></a-text>
+        <a-text
+          position="-0.8 0 0.1"
           value="START"
-          width="15"
+          width="11"
           height="10"
           color="black"
           font-family="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
         ></a-text>
       </a-plane>
-
     </a-scene>
   </body>
 </html>

@@ -302,7 +302,7 @@ AFRAME.registerComponent("app", {
         att.value =
           "property: position; easing: linear; dur:4500; to:" +
           this.getAttribute("position").x +
-          " 1.6 " +
+          " 3 " +
           +this.getAttribute("position").z;
         camera.setAttribute("animation", att.value);
       });
@@ -327,3 +327,5 @@ AFRAME.registerComponent("cursor-listener1", {
     });
   },
 });
+
+//uitlegslides
