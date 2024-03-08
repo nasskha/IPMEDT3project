@@ -65,9 +65,9 @@ AFRAME.registerComponent("app", {
     let scene = document.getElementById("js-scene");
     let oppakbaar = document.getElementsByClassName("oppakken");
     let vasthouden = null;
-    let planeCounter = 0;
+    let newGltfModelCounter = 0;
 
-    let CPU = document.getElementById("CPU");
+    let cpu = document.getElementById("cpu");
     let CpuPlaats = document.getElementById("CPUplaats");
     let ramGeheugen = document.getElementById("RAM");
     let ramPlaats = document.getElementById("RAMplaats");
@@ -84,71 +84,70 @@ AFRAME.registerComponent("app", {
           if (vasthouden == null) {
             console.log("zit erin");
 
-            const newPlane = document.createElement("a-plane");
-            const planeId = "plane" + planeCounter++;
-            if (this.getAttribute("id") == "CPU") {
+            // const newGltfModel = document.createElement("a-plane");
+            const newGltfModel = document.createElement("a-gltf-model");
+            // const gltfId = "newGltfModel" + newGltfModelCounter++;
+            // newGltfModel.setAttribute("id", gltfId);
+            console.log(newGltfModel);
+
+            console.log(newGltfModel.id);
+
+            if (this.getAttribute("id") == "moederboard") {
               console.log("hallo 1234");
-              newPlane.setAttribute("src", "images/CPU.jpg");
-              newPlane.setAttribute("width", 2);
-              newPlane.setAttribute("height", 2);
-              newPlane.setAttribute("id", planeId);
-              newPlane.setAttribute(
+              newGltfModel.setAttribute("src", "assets/moederboard.gltf");
+              newGltfModel.setAttribute("id", "moederboard");
+
+              newGltfModel.setAttribute(
                 "class",
-                "clickable oppakken neerleggen plekPlaatsen CPU"
+                "clickable oppakken  plekPlaatsen"
               );
-              newPlane.setAttribute("position", "1 1 -2");
-              newPlane.setAttribute("scale", "0.5 0.5 0.5");
-            } else if (this.getAttribute("id") == "SSD") {
-              newPlane.setAttribute("src", "images/SSD.jpg");
-              newPlane.setAttribute("width", 2);
-              newPlane.setAttribute("height", 2);
-              newPlane.setAttribute("id", planeId);
-              newPlane.setAttribute(
+              newGltfModel.setAttribute("position", "2 0 -2");
+              newGltfModel.setAttribute("scale", "0.5 0.5 0.5");
+              console.log(newGltfModel.getAttribute("id"));
+            } else if (this.getAttribute("id") == "cpu") {
+              newGltfModel.setAttribute("src", "assets/cpu.gltf");
+              newGltfModel.setAttribute("id", "cpu");
+              newGltfModel.setAttribute(
                 "class",
-                "clickable oppakken neerleggen plekPlaatsen RAM"
+                "clickable oppakken  plekPlaatsen "
               );
-              newPlane.setAttribute("position", "1 1 -2");
-              newPlane.setAttribute("scale", "0.5 0.5 0.5");
-            } else if (this.getAttribute("id") == "RAM") {
-              newPlane.setAttribute("src", "images/RAM.jpg");
-              newPlane.setAttribute("width", 3);
-              newPlane.setAttribute("height", 1);
-              newPlane.setAttribute("id", planeId);
-              newPlane.setAttribute(
+              newGltfModel.setAttribute("position", "2 0 -2");
+              newGltfModel.setAttribute("scale", "0.5 0.5 0.5");
+            } else if (this.getAttribute("id") == "ram") {
+              newGltfModel.setAttribute("src", "assets/ram.gltf");
+              newGltfModel.setAttribute("id", "ram");
+              newGltfModel.setAttribute(
                 "class",
-                "clickable oppakken neerleggen plekPlaatsen"
+                "clickable oppakken  plekPlaatsen "
               );
-              newPlane.setAttribute("position", "1 1 -2");
-              newPlane.setAttribute("scale", "0.5 0.5 0.5");
-            } else if (this.getAttribute("id") == "VENTILATOR") {
-              newPlane.setAttribute("src", "images/ventilator.jpeg");
-              newPlane.setAttribute("width", 2);
-              newPlane.setAttribute("height", 2);
-              newPlane.setAttribute("id", planeId);
-              newPlane.setAttribute(
+              newGltfModel.setAttribute("position", "2 0 -2");
+              newGltfModel.setAttribute("scale", "0.5 0.5 0.5");
+            } else if (this.getAttribute("id") == "ventilator1") {
+              newGltfModel.setAttribute("src", "assets/ventilator.gltf");
+              newGltfModel.setAttribute("id", "ventilator1");
+              newGltfModel.setAttribute(
                 "class",
-                "clickable oppakken neerleggen plekPlaatsen"
+                "clickable oppakken  plekPlaatsen "
               );
-              newPlane.setAttribute("position", "1 1 -2");
-              newPlane.setAttribute("scale", "0.5 0.5 0.5");
-            } else if (this.getAttribute("id") == "GRAPHIC") {
-              newPlane.setAttribute("src", "images/grapphiccard.png");
-              newPlane.setAttribute("width", 2);
-              newPlane.setAttribute("height", 2);
-              newPlane.setAttribute("id", planeId);
-              newPlane.setAttribute(
+              newGltfModel.setAttribute("position", "2 0 -2");
+              newGltfModel.setAttribute("scale", "0.5 0.5 0.5");
+            } else if (this.getAttribute("id") == "ventilator2") {
+              newGltfModel.setAttribute("src", "assets/ventilator2.gltf");
+              newGltfModel.setAttribute("id", "ventilator2");
+              newGltfModel.setAttribute(
                 "class",
-                "clickable oppakken neerleggen plekPlaatsen"
+                "clickable oppakken  plekPlaatsen "
               );
-              newPlane.setAttribute("position", "1 1 -2");
-              newPlane.setAttribute("scale", "0.5 0.5 0.5");
+              newGltfModel.setAttribute("position", "2 0 -2");
+              newGltfModel.setAttribute("scale", "0.5 0.5 0.5");
             }
 
-            camera.appendChild(newPlane);
-            vasthouden = "plane";
+            camera.appendChild(newGltfModel);
+            vasthouden = "newGltfModel";
+            console.log("HAODJSOIDHIOD", newGltfModel.getAttribute("id"));
 
-            console.log("plane id:", planeId);
-            console.log("er wordt een plane vastgehouden", newPlane);
+            // console.log("gltf id:", gltfId);
+            console.log("er wordt een plane vastgehouden", newGltfModel);
 
             if (this === CPU) {
               console.log("geklikt op de CPU");
@@ -166,119 +165,96 @@ AFRAME.registerComponent("app", {
         });
       }
     }
-
     addListeners();
-    //plaatsen van een plane
+    // plaatsen van een plane
     for (let i = 0; i < objectPlaatsen.length; i++) {
       objectPlaatsen[i].addEventListener("click", function (evt) {
         console.log("neerleg plek is geklikt", i);
         //hierergens een if statement?? als ik een plane oppak en wil plaatsen moet het kloppen
         //hetgeen wat je vast hebt moet hier naar null gezet worden en - vasthouden
-        if (vasthouden == "plane") {
+        if (vasthouden !== null) {
           console.log("er is een plane geplaatst");
 
-          if (this.getAttribute("plane") != "neerleggen") {
-            // light.setAttribute("light", "type:ambient; color: red");
-            // setInterval(turnOffLight, 3000);
-            const plane = document.createElement("a-plane");
-            console.log("ik zit er net buiten");
-            console.log("wat is this", this);
-            console.log("plane is", plane);
-            //if object is ram dan aanmaken ram en cpu hetzelfde
-            //newplane id oppakken == ram
-            //aanmaken van planes en die plaatsen
-            console.log("Clicked element ID:", this.getAttribute("id"));
+          if (this.getAttribute("class") == "neerleggen") {
+            // this is waar je naar kijkt (nu grijs vlakje)
+            const ditHebIkVast =
+              document.getElementsByClassName("plekPlaatsen")[0];
+            const modelId = ditHebIkVast.id;
+            console.log(ditHebIkVast);
+            let message = "";
+            console.log("ik zit in de switch");
+            let newGltfModel = document.createElement("a-gltf-model");
+            // const targetPosition = this.getAttribute("position");
 
-            if (this.getAttribute("class") == "neerleggen") {
-              console.log("dit is de cpu plek");
-              plane.setAttribute("id", "CPU");
-              plane.setAttribute("class", "oppakken CPU");
-              plane.setAttribute("src", "images/CPU.jpg");
-              plane.setAttribute("width", 2);
-              plane.setAttribute("height", 2);
-              plane.setAttribute("position", {
-                x: this.getAttribute("position").x,
-                y: "0.7",
-                z: this.getAttribute("position").z,
-              });
-              console.log("Ben ik hier geweest?");
+            switch (modelId) {
+              case "moederboard":
+                message = "dit is de moederboard plek";
+                newGltfModel.setAttribute("id", "moederboard");
+                newGltfModel.setAttribute("class", "oppakken moederboard");
+                newGltfModel.setAttribute("src", "assets/moederboard.gltf");
+                break;
+              case "ram":
+                message = "dit is de ram plek";
+                newGltfModel.setAttribute("class", "oppakken ram");
+                newGltfModel.setAttribute("id", "ram");
+                newGltfModel.setAttribute("src", "assets/ram.gltf");
+                // newGltfModel.setAttribute("position", targetPosition);
+                break;
+              case "cpu":
+                message = "dit is de cpu plek";
+                newGltfModel.setAttribute("class", "oppakken cpu");
+                newGltfModel.setAttribute("id", "cpu");
+                newGltfModel.setAttribute("src", "assets/cpu.gltf");
+                break;
+              case "ventilator":
+                message = "dit is de ventilator plek";
+                newGltfModel.setAttribute("class", "oppakken ventilator");
+                newGltfModel.setAttribute("id", "ventilator");
+                newGltfModel.setAttribute("src", "assets/ventilator.gltf");
+                break;
+              case "ventilator2":
+                message = "dit is de ventilator2 plek";
+                newGltfModel.setAttribute("class", "oppakken ventilator2");
+                newGltfModel.setAttribute("id", "GRAPHIC");
+                newGltfModel.setAttribute("src", "assets/ventilator2.gltf");
+                break;
+              default:
+                break;
             }
-            if (this.getAttribute("class") == "neerleggen") {
-              console.log("dit is de ram plek");
-              plane.setAttribute("class", "oppakken RAM");
-              plane.setAttribute("id", "RAM");
-              plane.setAttribute("src", "images/RAM.jpg");
-              plane.setAttribute("width", 3);
-              plane.setAttribute("height", 1);
-              plane.setAttribute("position", {
-                x: this.getAttribute("position").x,
-                y: "0.7",
-                z: this.getAttribute("position").z,
-              });
-            }
-            if (this.getAttribute("class") == "neerleggen") {
-              console.log("dit is de ssd plek");
-              plane.setAttribute("class", "oppakken ssd");
-              plane.setAttribute("id", "SSD");
-              plane.setAttribute("src", "images/SSD.jpg");
-              plane.setAttribute("width", 2);
-              plane.setAttribute("height", 2);
-              plane.setAttribute("position", {
-                x: this.getAttribute("position").x,
-                y: "0.7",
-                z: this.getAttribute("position").z,
-              });
-            }
-            if (this.getAttribute("class") == "neerleggen") {
-              console.log("dit is de ventilator plek");
-              plane.setAttribute("class", "oppakken ventilator");
-              plane.setAttribute("id", "VENTILATOR");
-              plane.setAttribute("src", "images/ventilator.jpeg");
-              plane.setAttribute("width", 2);
-              plane.setAttribute("height", 2);
-              plane.setAttribute("position", {
-                x: this.getAttribute("position").x,
-                y: "0.7",
-                z: this.getAttribute("position").z,
-              });
-            }
-            if (this.getAttribute("class") == "neerleggen") {
-              console.log("dit is de graphic plek");
-              plane.setAttribute("class", "oppakken graphic");
-              plane.setAttribute("id", "GRAPHIC");
-              plane.setAttribute("src", "images/grapphiccard.png");
-              plane.setAttribute("width", 2);
-              plane.setAttribute("height", 2);
-              plane.setAttribute("position", {
+
+            if (message) {
+              console.log(message);
+              newGltfModel.setAttribute("position", {
                 x: this.getAttribute("position").x,
                 y: "0.7",
                 z: this.getAttribute("position").z,
               });
             }
 
-            if (
-              (this == CpuPlaats && plane.getAttribute("id") == "CPU") ||
-              (this == ramPlaats && plane.getAttribute("id") == "RAM")
-            ) {
-              light.setAttribute("light", "type:ambient; color: green");
-              setInterval(turnOffLight, 1500);
-              console.log("Clicked element ID in :", this.getAttribute("id"));
-              console.log("ik zit in groen");
-            } else if (
-              (this == ramPlaats && plane.getAttribute("id") == "CPU") ||
-              (this == CpuPlaats && plane.getAttribute("id") == "RAM")
-            ) {
-              light.setAttribute("light", "type:ambient; color:red");
-              console.log(
-                "clicked element id in rood:",
-                this.getAttribute("id")
-              );
-              console.log("clicked plane", plane.getAttribute("id"));
-              setInterval(turnOffLight, 1500);
-              console.log("ik zit in rood");
-            }
+            // hieronder zit de feedback code die niet werkt.
+            // if (
+            //   (this == CpuPlaats && newGltfModel.getAttribute("id") == "cpu") ||
+            //   (this == ramPlaats && newGltfModel.getAttribute("id") == "ram")
+            // ) {
+            //   light.setAttribute("light", "type:ambient; color: green");
+            //   setInterval(turnOffLight, 1500);
+            //   console.log("Clicked element ID in :", this.getAttribute("id"));
+            //   console.log("ik zit in groen");
+            // } else if (
+            //   (this == ramPlaats && newGltfModel.getAttribute("id") == "cpu") ||
+            //   (this == CpuPlaats && newGltfModel.getAttribute("id") == "ram")
+            // ) {
+            //   light.setAttribute("light", "type:ambient; color:red");
+            //   console.log(
+            //     "clicked element id in rood:",
+            //     this.getAttribute("id")
+            //   );
+            //   console.log("clicked plane", newGltfModel.getAttribute("id"));
+            //   setInterval(turnOffLight, 1500);
+            //   console.log("ik zit in rood");
+            // }
 
-            scene.appendChild(plane);
+            scene.appendChild(newGltfModel);
 
             let klikbaarElement =
               document.getElementsByClassName("plekPlaatsen");
@@ -327,5 +303,3 @@ AFRAME.registerComponent("cursor-listener1", {
     });
   },
 });
-
-//uitlegslides
