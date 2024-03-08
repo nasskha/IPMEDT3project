@@ -28,7 +28,7 @@
           src="assets/ventilator2.gltf"
         ></a-asset-item>
       </a-assets>
-      <a-camera id="camera-cirkel" position="0 3 5 ">
+      <a-camera id="camera-cirkel" position="0 4 5 ">
         <a-entity
           id="camera-cirkel"
           animation__click="property: scale; 
@@ -53,7 +53,7 @@
           material="color: black; shader: flat"
           geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
           position="0 0 -0.5"
-          raycaster="objects: .clickable ,.oppakken ,.neerleggen ,.plekPlaatsen ,.terug ,.neerleggen2 ,.klik ,.js--hoveren ,.nextButton"
+          raycaster="objects: .clickable ,.oppakken ,.neerleggen ,.plekPlaatsen ,.terug ,.neerleggen2 ,.klik ,.js--hoveren ,.nextButton ,.closeKlik"
         ></a-entity>
       </a-camera>
 
@@ -158,68 +158,54 @@
       <!-- pop up menus -->
       <a-entity position="0 5 0">
         <a-entity id="menu-one" class="menu" position="7 2 -9" visible="false">
+          <!-- ventilator1 informatiekaart -->
           <a-plane
             class="clickable"
             color="grey"
-            position="-1 0 0"
+            position="0 0 0"
             text="value: informatiekaart; align:center; width: 3;"
             event-set__enter="_event:mouseenter; _target: #boxText; visible:true"
             event-set__leave="_event:mouseleave; _target: #boxText; visible:false"
           >
             <a-text
               id="boxText"
-              value="ABCDEFG"
+              value="ventilator1 tekst hier"
               align="center"
               color="black"
               visible="false"
-              position="-1 1 1"
+              position="1 -2 0"
               rotation="0 0 0"
               geometry="primitive: plane; width:3 height:1"
               material="color:pink"
             ></a-text>
-          </a-plane>
-          <a-plane
-            id="CPU"
-            class="clickable oppakken"
-            color="grey"
-            position="1 0 0"
-            text="value: pak mij op; align:center; width:3;"
-          >
           </a-plane>
         </a-entity>
 
         <a-entity id="menu-two" class="menu" position="10 2 -9" visible="false">
+          <!-- cpu informatiekaart -->
           <a-plane
             class="clickable"
             color="grey"
-            position="-1 0 0"
+            position="0 -1 0"
             text="value: informatiekaart; align:center; width:3;"
-            event-set__enter="_event:mouseenter; _target: #boxText; visible:true"
-            event-set__leave="_event:mouseleave; _target: #boxText; visible:false"
+            event-set__enter="_event:mouseenter; _target: #boxText2; visible:true"
+            event-set__leave="_event:mouseleave; _target: #boxText2; visible:false"
           >
             <a-text
-              id="boxText"
-              value="informatiekaart tekst"
+              id="boxText2"
+              value="cpuw tekst"
               align="center"
               color="black"
               visible="false"
-              position="-1 1 1"
+              position="0 -2 0"
               rotation="0 0 0"
               geometry="primitive: plane; width:3 height:1"
               material="color:pink"
             ></a-text>
           </a-plane>
-          <a-plane
-            id="SSD"
-            class="clickable oppakken"
-            color="grey"
-            position="1 0 0"
-            text="value: pak mij op; align:center; width:3;"
-          >
-          </a-plane>
         </a-entity>
 
-        <!-- menu drie -->
+        <!-- ram informatiekaart -->
         <a-entity
           id="menu-three"
           class="menu"
@@ -229,14 +215,15 @@
           <a-plane
             class="clickable"
             color="grey"
-            position="3 0 1"
+            position="3 -1 1"
+            rotation="0 45 0"
             text="value: informatiekaart; align:center; width: 3;"
             event-set__enter="_event:mouseenter; _target: #boxText3; visible:true"
             event-set__leave="_event:mouseleave; _target: #boxText3; visible:false"
           >
             <a-text
               id="boxText3"
-              value="ABCDEFG"
+              value="ram informatiekaart"
               align="center"
               color="black"
               visible="false"
@@ -246,17 +233,9 @@
               material="color:pink"
             ></a-text>
           </a-plane>
-          <a-plane
-            id="RAM"
-            class="clickable oppakken"
-            color="grey"
-            position="5 0 1"
-            text="value: pak mij op; align:center; width:3;"
-          >
-          </a-plane>
         </a-entity>
 
-        <!-- menu vier -->
+        <!-- moederboard informatiekaart -->
         <a-entity
           id="menu-four"
           class="menu"
@@ -266,14 +245,14 @@
           <a-plane
             class="clickable"
             color="grey"
-            position="3 0 1"
+            position="4 0 1"
             text="value: informatiekaart; align:center; width: 3;"
             event-set__enter="_event:mouseenter; _target: #boxText4; visible:true"
             event-set__leave="_event:mouseleave; _target: #boxText4; visible:false"
           >
             <a-text
               id="boxText4"
-              value="ABCDEFG"
+              value="moederboard informatiekaart"
               align="center"
               color="black"
               visible="false"
@@ -283,17 +262,9 @@
               material="color:pink"
             ></a-text>
           </a-plane>
-          <a-plane
-            id="GRAPHIC"
-            class="clickable oppakken"
-            color="grey"
-            position="5 0 1"
-            text="value: pak mij op; align:center; width:3;"
-          >
-          </a-plane>
         </a-entity>
 
-        <!-- menu vijf -->
+        <!-- ventilator 2 informatiekaart -->
         <a-entity
           id="menu-five"
           class="menu"
@@ -304,13 +275,14 @@
             class="clickable"
             color="grey"
             position="3 0 1"
+            rotation="0 45 0"
             text="value: informatiekaart; align:center; width: 3;"
             event-set__enter="_event:mouseenter; _target: #boxText5; visible:true"
             event-set__leave="_event:mouseleave; _target: #boxText5; visible:false"
           >
             <a-text
               id="boxText5"
-              value="ABCDEFG"
+              value="ventilator 2 text"
               align="center"
               color="black"
               visible="false"
@@ -320,34 +292,115 @@
               material="color:pink"
             ></a-text>
           </a-plane>
-          <a-plane
-            id="VENTILATOR"
-            class="clickable oppakken"
-            color="grey"
-            position="5 0 1"
-            text="value: pak mij op; align:center; width:3;"
-          >
-          </a-plane>
         </a-entity>
       </a-entity>
       <!-- hieronder de boxen waar je iets op kan plaatsen -->
+
+      <!-- voorbeeldfoto -->
+      <a-entity position="0 5 -12"
+        ><a-plane color="black" height="4" width="3.9"></a-plane>
+        <a-plane
+          src="pics/voorbeeldfoto.png"
+          position="0 0 0.1"
+          height="3"
+          width="3"
+        ></a-plane>
+        <a-text
+          value="Voorbeeld"
+          color="black"
+          align="center"
+          side="double"
+          width="8"
+          height="8"
+          position="0 3 0"
+          font-size="normal"
+        ></a-text
+      ></a-entity>
+
       <a-entity id="boxEnPlaatsen">
+        <!-- ventilator1 plek -->
         <a-box
           class="neerleggen"
-          color="grey"
-          position="-1 0 0"
+          color="lightblue"
+          position="-5 1 -10"
           opacity="0.4"
           height="0.2"
         ></a-box>
-
+        <!-- cpu plek -->
+        <a-box
+          class="neerleggen"
+          color="lightblue"
+          position="-6 2 -10"
+          opacity="0.4"
+          height="0.2"
+        ></a-box>
+        <!-- moederboard plek -->
+        <a-box
+          class="neerleggen"
+          color="lightblue"
+          position="-6 5 -10"
+          opacity="0.4"
+          height="0.2"
+          rotation="90 0 0"
+        ></a-box>
+        <!-- ventilator 1 plek -->
         <a-box
           class="neerleggen"
           color="grey"
-          position="1 0 0"
+          position="-5 4 -10"
+          opacity="0.4"
+          height="0.2"
+        ></a-box>
+        <!-- ram plek -->
+        <a-box
+          class="neerleggen"
+          color="grey"
+          position="-4 3 -9"
           opacity="0.4"
           height="0.2"
         ></a-box>
       </a-entity>
+
+      <!-- uitlegplane -->
+      <a-entity id="openClose" visible="true">
+        <!-- achtergrond plane -->
+        <a-plane
+          color="black"
+          position="0 5 -1"
+          side="double"
+          width="12"
+          height="5"
+        ></a-plane>
+        <!-- close button -->
+        <a-plane
+          class="closeKlik"
+          id="closeButton"
+          color="grey"
+          position="0 4 -0.9"
+          side="double"
+          width="2.5"
+          height="1.5"
+          events="click: closeEntity"
+          cursor-listener2
+        >
+          <a-text
+            position="-5 2 0.1"
+            value="Welkom bij deze VR experience over computers! Je zal in deze experience leren wat bepaalde computeronderdelen doen en waar ze geplaatst worden in de computer zelf!"
+            width="11"
+            height="10"
+            color="white"
+            font-family="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+          ></a-text>
+          <a-text
+            position="-0.8 0 0.5"
+            value="CLOSE"
+            width="11"
+            height="10"
+            color="black"
+            font-family="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+          ></a-text> </a-plane
+      ></a-entity>
+
       <!-- hieronder de muur met objecten die je kan oppakkken -->
       <a-entity id="backplane" class="foto">
         <!-- de muur -->
@@ -376,7 +429,7 @@
               height="0.5"
               width="1.5"
               color="grey"
-              text="value: ram; align: center; width: 4;"
+              text="value: RAM; align: center; width: 4;"
               side="double"
             ></a-plane>
           </a-entity>

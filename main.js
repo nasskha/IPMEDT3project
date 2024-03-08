@@ -206,16 +206,17 @@ AFRAME.registerComponent("app", {
                 newGltfModel.setAttribute("id", "cpu");
                 newGltfModel.setAttribute("src", "assets/cpu.gltf");
                 break;
-              case "ventilator":
+              case "ventilator1":
+                console.log("dit is ventilator 1");
                 message = "dit is de ventilator plek";
-                newGltfModel.setAttribute("class", "oppakken ventilator");
-                newGltfModel.setAttribute("id", "ventilator");
+                newGltfModel.setAttribute("class", "oppakken ventilator1");
+                newGltfModel.setAttribute("id", "ventilator1");
                 newGltfModel.setAttribute("src", "assets/ventilator.gltf");
                 break;
               case "ventilator2":
                 message = "dit is de ventilator2 plek";
                 newGltfModel.setAttribute("class", "oppakken ventilator2");
-                newGltfModel.setAttribute("id", "GRAPHIC");
+                newGltfModel.setAttribute("id", "ventilator2");
                 newGltfModel.setAttribute("src", "assets/ventilator2.gltf");
                 break;
               default:
@@ -226,7 +227,7 @@ AFRAME.registerComponent("app", {
               console.log(message);
               newGltfModel.setAttribute("position", {
                 x: this.getAttribute("position").x,
-                y: "0.7",
+                y: "1",
                 z: this.getAttribute("position").z,
               });
             }
@@ -278,7 +279,7 @@ AFRAME.registerComponent("app", {
         att.value =
           "property: position; easing: linear; dur:4500; to:" +
           this.getAttribute("position").x +
-          " 3 " +
+          " 4 " +
           +this.getAttribute("position").z;
         camera.setAttribute("animation", att.value);
       });
@@ -301,5 +302,21 @@ AFRAME.registerComponent("cursor-listener1", {
     el.addEventListener("click", function () {
       window.location.href = "frontpage.html";
     });
+  },
+});
+
+AFRAME.registerComponent("cursor-listener2", {
+  init: function () {
+    var closeButton = document.getElementById("closeButton");
+    var self = this;
+
+    closeButton.addEventListener("click", function () {
+      self.closeEntity();
+    });
+  },
+
+  closeEntity: function () {
+    var uitlegplane = document.getElementById("openClose");
+    uitlegplane.setAttribute("visible", "false");
   },
 });
